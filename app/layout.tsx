@@ -16,8 +16,8 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Moksha360 | Top Entertainment Agency in Bangalore",
-  description: "Bengaluru-based entertainment, talent management, and music-tech platform focused on artist growth, global exposure, and immersive experiences (XR/AI).",
+  title: "Top Entertainment Agency in Bangalore | Moksha360",
+  description: "Moksha360 is a leading entertainment and artist management company in Bangalore helping musicians grow globally.",
 };
 
 export default function RootLayout({
@@ -25,8 +25,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Moksha360",
+    "url": "https://moksha360.com",
+    "logo": "https://moksha360.com/logo.png"
+  };
+
   return (
     <html lang="en">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${poppins.variable} ${openSans.variable} font-opensans antialiased bg-white text-black`}
       >
