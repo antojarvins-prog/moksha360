@@ -95,7 +95,11 @@ export default function Blog1() {
                <div className="bg-[#3D7500]/10 border-l-4 border-[#4ade80] p-8 rounded-r-3xl mt-8 backdrop-blur-md">
                   <p className="m-0 text-[#4ade80] font-medium text-xl"><strong>👉 Tip:</strong> Consistency in identity helps audiences remember you.</p>
                </div>
-             </section>
+             
+               <div className="bg-[#13AFF0]/10 border-l-4 border-[#13AFF0] p-6 rounded-r-3xl my-10 backdrop-blur-md">
+                  <p className="m-0 text-white font-medium text-lg">🚀 Want dedicated help growing your music career? <Link href="/artist-management" className="text-[#13AFF0] hover:underline transition-colors">Work with Moksha360</Link>.</p>
+               </div>
+        </section>
 
              <section>
                <h2 className="text-3xl font-bold font-poppins text-white mt-12 mb-6">3. Build Your Skills (Foundation Phase)</h2>
@@ -169,6 +173,23 @@ export default function Blog1() {
                <p className="leading-relaxed text-xl">Becoming a music artist in Bangalore is not about waiting for opportunities—it’s about creating them.</p>
                <p className="leading-relaxed mt-6 text-xl">Start small, stay consistent, and build your presence step by step.</p>
              </section>
+          
+             <section className="bg-[#3D7500]/10 p-10 rounded-[2rem] border border-[#3D7500]/20 mt-16 mb-12 backdrop-blur-2xl">
+               <h2 className="text-3xl font-bold font-poppins text-white mb-6">Work With Moksha360</h2>
+               <p className="leading-relaxed text-gray-300 mb-6">If you're serious about growing your music career in Bangalore, explore our professional infrastructure:</p>
+               <ul className="space-y-4 mb-8">
+                 <li><Link href="/artist-management" className="text-[#4ade80] hover:underline transition-colors flex items-center">→ Artist Management</Link></li>
+                 <li><Link href="/music-promotion" className="text-[#4ade80] hover:underline transition-colors flex items-center">→ Music Promotion</Link></li>
+                 <li><Link href="/live-events" className="text-[#4ade80] hover:underline transition-colors flex items-center">→ Live Events</Link></li>
+               </ul>
+               <h3 className="text-2xl font-bold font-poppins text-white mb-6 pt-6 border-t border-[#3D7500]/20">Explore More Authority Guides</h3>
+               <ul className="space-y-4">
+                 <li><Link href="/blog/how-to-build-a-music-brand" className="text-[#13AFF0] hover:underline transition-colors flex items-center">→ How to Build a Music Brand</Link></li>
+                 <li><Link href="/blog/how-to-get-signed-to-a-label" className="text-[#13AFF0] hover:underline transition-colors flex items-center">→ How to Get Signed to a Label</Link></li>
+                 <li><Link href="/blog/how-to-get-spotify-streams" className="text-[#13AFF0] hover:underline transition-colors flex items-center">→ How to Get Spotify Streams</Link></li>
+               </ul>
+             </section>
+
           </article>
         </FadeIn>
       </div>

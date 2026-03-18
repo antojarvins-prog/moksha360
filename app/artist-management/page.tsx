@@ -60,6 +60,19 @@ export default function ArtistManagementPage() {
              <Button size="lg" className="h-14 px-8 text-lg">Start Your Journey <ArrowRight className="ml-2 w-5 h-5" /></Button>
            </Link>
         </section>
+        <section className="mt-16 pt-16 border-t border-gray-100 mb-16">
+           <h2 className="text-2xl font-bold font-poppins text-gray-900 mb-6">Serving Artists Across Bangalore</h2>
+           <p className="text-gray-600 leading-relaxed">We strategically work with artists operating across the entire city layout, establishing dedicated focus routing targeting Indiranagar, Koramangala, Whitefield, and Electronic City infrastructures.</p>
+        </section>
+
+        <section className="mb-16">
+           <h2 className="text-2xl font-bold font-poppins text-gray-900 mb-6">Learn More</h2>
+           <ul className="space-y-4">
+               <li><Link href="/blog/how-artist-management-works" className="text-[#13AFF0] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4" /> How Artist Management Works</Link></li>
+               <li><Link href="/blog/indie-artist-growth-guide" className="text-[#13AFF0] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4" /> Indie Artist Growth Guide</Link></li>
+               <li><Link href="/blog/music-career-mistakes-to-avoid" className="text-[#13AFF0] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4" /> Music Career Mistakes to Avoid</Link></li>
+           </ul>
+        </section>
       </div>
     </main>
   );

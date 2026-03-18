@@ -22,7 +22,7 @@ export default function Blog8() {
             How to Build a Music Brand
           </h1>
           <div className="bg-[#13AFF0]/5 border border-[#13AFF0]/20 p-8 rounded-3xl mb-12 backdrop-blur-md">
-            <h2 className="text-[#13AFF0] font-bold font-poppins mb-3 text-xl flex items-center">🔍 Featured Snippet</h2>
+            <h2 className="text-[#13AFF0] font-bold font-poppins mb-3 text-xl flex items-center">⚡ Quick Answer</h2>
             <p className="font-opensans text-gray-300 leading-relaxed"><strong>What is a music brand?</strong><br/>A music brand is the identity of an artist, including their sound, visuals, personality, and story, which helps audiences recognize and connect with them.</p>
           </div>
           <div className="flex flex-col gap-6 mb-12">
@@ -50,11 +50,32 @@ export default function Blog8() {
              <section>
                <h2 className="text-3xl font-bold font-poppins text-white mt-12 mb-6">Consistency and Platforms</h2>
                <p className="leading-relaxed">Consistency builds massive psychological recognition and trust. You must aggressively maintain this aesthetic brand across Instagram visual grids, highly-directed YouTube video narratives, and meticulously organized Spotify canvas clips.</p>
-             </section>
+             
+               <div className="bg-[#13AFF0]/10 border-l-4 border-[#13AFF0] p-6 rounded-r-3xl my-10 backdrop-blur-md">
+                  <p className="m-0 text-white font-medium text-lg">🚀 Want dedicated help growing your music career? <Link href="/artist-management" className="text-[#13AFF0] hover:underline transition-colors">Work with Moksha360</Link>.</p>
+               </div>
+        </section>
              <section className="bg-white/5 p-10 rounded-[2rem] border border-white/10 mt-16 mb-24 backdrop-blur-2xl">
                <h2 className="text-4xl font-bold font-poppins text-white mb-6">Conclusion</h2>
                <p className="leading-relaxed text-xl">A strong, unshakeable brand successfully turns casual passing listeners into highly loyal, spending fans.</p>
              </section>
+          
+             <section className="bg-[#3D7500]/10 p-10 rounded-[2rem] border border-[#3D7500]/20 mt-16 mb-12 backdrop-blur-2xl">
+               <h2 className="text-3xl font-bold font-poppins text-white mb-6">Work With Moksha360</h2>
+               <p className="leading-relaxed text-gray-300 mb-6">If you're serious about growing your music career in Bangalore, explore our professional infrastructure:</p>
+               <ul className="space-y-4 mb-8">
+                 <li><Link href="/artist-management" className="text-[#4ade80] hover:underline transition-colors flex items-center">→ Artist Management</Link></li>
+                 <li><Link href="/music-promotion" className="text-[#4ade80] hover:underline transition-colors flex items-center">→ Music Promotion</Link></li>
+                 <li><Link href="/live-events" className="text-[#4ade80] hover:underline transition-colors flex items-center">→ Live Events</Link></li>
+               </ul>
+               <h3 className="text-2xl font-bold font-poppins text-white mb-6 pt-6 border-t border-[#3D7500]/20">Explore More Authority Guides</h3>
+               <ul className="space-y-4">
+                 <li><Link href="/blog/how-to-get-signed-to-a-label" className="text-[#13AFF0] hover:underline transition-colors flex items-center">→ How to Get Signed to a Label</Link></li>
+                 <li><Link href="/blog/how-to-get-spotify-streams" className="text-[#13AFF0] hover:underline transition-colors flex items-center">→ How to Get Spotify Streams</Link></li>
+                 <li><Link href="/blog/how-to-get-your-first-gig" className="text-[#13AFF0] hover:underline transition-colors flex items-center">→ How to Get Your First Gig</Link></li>
+               </ul>
+             </section>
+
           </article>
         </FadeIn>
       </div>

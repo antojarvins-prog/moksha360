@@ -16,8 +16,20 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://moksha360.com'),
   title: "Top Entertainment Agency in Bangalore | Moksha360",
   description: "Moksha360 is a leading entertainment and artist management company in Bangalore helping musicians grow globally.",
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: "Moksha360 | Top Entertainment Agency in Bangalore",
+    description: "Moksha360 is a leading entertainment and artist management company in Bangalore helping musicians grow globally.",
+    url: 'https://moksha360.com',
+    siteName: 'Moksha360',
+    locale: 'en_IN',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({

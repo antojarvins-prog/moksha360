@@ -45,7 +45,7 @@ export default function Blog5() {
           </h1>
           
           <div className="bg-[#13AFF0]/5 border border-[#13AFF0]/20 p-8 rounded-3xl mb-12 backdrop-blur-md">
-            <h2 className="text-[#13AFF0] font-bold font-poppins mb-3 text-xl flex items-center">🔍 Featured Snippet</h2>
+            <h2 className="text-[#13AFF0] font-bold font-poppins mb-3 text-xl flex items-center">⚡ Quick Answer</h2>
             <p className="font-opensans text-gray-300 leading-relaxed"><strong>How do beginners get their first music gig?</strong><br/>Beginners can get their first gig by preparing a small performance set, reaching out to local venues, participating in open mics, and networking with event organizers.</p>
           </div>
 
@@ -67,7 +67,11 @@ export default function Blog5() {
              <section>
                <h2 className="text-3xl font-bold font-poppins text-white mt-12 mb-6">Step 2: Build a Basic Portfolio</h2>
                <p className="leading-relaxed mt-2 text-gray-300">Venues need proof you can perform. Compile a cohesive electronic press kit (EPK) including performance videos, an active social media presence, and high-quality demo tracks.</p>
-             </section>
+             
+               <div className="bg-[#13AFF0]/10 border-l-4 border-[#13AFF0] p-6 rounded-r-3xl my-10 backdrop-blur-md">
+                  <p className="m-0 text-white font-medium text-lg">🚀 Want dedicated help growing your music career? <Link href="/artist-management" className="text-[#13AFF0] hover:underline transition-colors">Work with Moksha360</Link>.</p>
+               </div>
+        </section>
 
              <section>
                <h2 className="text-3xl font-bold font-poppins text-white mt-12 mb-6">Step 3: Start with Open Mics</h2>
@@ -100,6 +104,23 @@ export default function Blog5() {
                <h2 className="text-4xl font-bold font-poppins text-white mb-6">Conclusion</h2>
                <p className="leading-relaxed text-xl">Your first gig won’t be flawless—and that’s entirely okay. It’s simply the crucial beginning threshold of your organic growth model.</p>
              </section>
+          
+             <section className="bg-[#3D7500]/10 p-10 rounded-[2rem] border border-[#3D7500]/20 mt-16 mb-12 backdrop-blur-2xl">
+               <h2 className="text-3xl font-bold font-poppins text-white mb-6">Work With Moksha360</h2>
+               <p className="leading-relaxed text-gray-300 mb-6">If you're serious about growing your music career in Bangalore, explore our professional infrastructure:</p>
+               <ul className="space-y-4 mb-8">
+                 <li><Link href="/artist-management" className="text-[#4ade80] hover:underline transition-colors flex items-center">→ Artist Management</Link></li>
+                 <li><Link href="/music-promotion" className="text-[#4ade80] hover:underline transition-colors flex items-center">→ Music Promotion</Link></li>
+                 <li><Link href="/live-events" className="text-[#4ade80] hover:underline transition-colors flex items-center">→ Live Events</Link></li>
+               </ul>
+               <h3 className="text-2xl font-bold font-poppins text-white mb-6 pt-6 border-t border-[#3D7500]/20">Explore More Authority Guides</h3>
+               <ul className="space-y-4">
+                 <li><Link href="/blog/indie-artist-growth-guide" className="text-[#13AFF0] hover:underline transition-colors flex items-center">→ Indie Artist Growth Guide</Link></li>
+                 <li><Link href="/blog/music-career-mistakes-to-avoid" className="text-[#13AFF0] hover:underline transition-colors flex items-center">→ Music Career Mistakes to Avoid</Link></li>
+                 <li><Link href="/blog/music-marketing-checklist" className="text-[#13AFF0] hover:underline transition-colors flex items-center">→ Music Marketing Checklist</Link></li>
+               </ul>
+             </section>
+
           </article>
         </FadeIn>
       </div>

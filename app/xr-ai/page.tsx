@@ -60,6 +60,19 @@ export default function XRAIPage() {
              <Button size="lg" className="h-14 px-8 text-lg">Start Your Journey <ArrowRight className="ml-2 w-5 h-5" /></Button>
            </Link>
         </section>
+        <section className="mt-16 pt-16 border-t border-gray-100 mb-16">
+           <h2 className="text-2xl font-bold font-poppins text-gray-900 mb-6">Serving Artists Across Bangalore</h2>
+           <p className="text-gray-600 leading-relaxed">We strategically work with artists operating across the entire city layout, establishing dedicated focus routing targeting Indiranagar, Koramangala, Whitefield, and Electronic City infrastructures.</p>
+        </section>
+
+        <section className="mb-16">
+           <h2 className="text-2xl font-bold font-poppins text-gray-900 mb-6">Learn More</h2>
+           <ul className="space-y-4">
+               <li><Link href="/blog/xr-concerts-future-of-music" className="text-[#13AFF0] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4" /> XR Concerts: The Future of Music Experiences</Link></li>
+               <li><Link href="/blog/ai-in-music-industry-explained" className="text-[#13AFF0] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4" /> AI in the Music Industry Explained</Link></li>
+               <li><Link href="/blog/best-recording-studios-in-bangalore" className="text-[#13AFF0] hover:underline flex items-center gap-2"><ArrowRight className="w-4 h-4" /> Best Recording Studios in Bangalore</Link></li>
+           </ul>
+        </section>
       </div>
     </main>
   );
