@@ -18,7 +18,7 @@ export default function Home() {
         {/* Background Zoom Animation natively CSS bound */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=2070&auto=format&fit=crop"
+            src="/images/hero_concert_energy_1773866491674.png"
             alt="Moksha360 Live Concert Experience"
             fill
             className="object-cover animate-hero-zoom opacity-40"
@@ -72,7 +72,7 @@ export default function Home() {
             <FadeIn>
               <div className="relative aspect-[4/5] md:aspect-square rounded-[3rem] overflow-hidden border border-white/10">
                 <Image
-                  src="https://images.unsplash.com/photo-1598387993441-a364f854c3e1?q=80&w=2076&auto=format&fit=crop"
+                  src="/images/global_authority_network_1773866510533.png"
                   alt="Grammy Awards Networking"
                   fill
                   className="object-cover opacity-80"
@@ -158,7 +158,7 @@ export default function Home() {
              </FadeIn>
              <FadeIn>
                <div className="relative aspect-[4/4] md:aspect-[4/3] rounded-[3rem] overflow-hidden border border-white/10 group shadow-2xl">
-                  <Image src="https://images.unsplash.com/photo-1516280440502-f8728a55e2d6?q=80&w=2070&auto=format&fit=crop" alt="Artist in Studio Recording" fill className="object-cover group-hover:scale-110 transition-transform duration-[1.5s]" />
+                  <Image src="/images/artist_studio_recording_1773866526884.png" alt="Artist in Studio Recording" fill className="object-cover group-hover:scale-110 transition-transform duration-[1.5s]" />
                </div>
              </FadeIn>
            </div>
