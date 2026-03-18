@@ -16,3 +16,11 @@ export function FadeIn({ children, delay = 0, className = "" }: { children: Reac
     </motion.div>
   );
 }
+
+export function FadeInStagger({ children, className = "" }: { children: ReactNode, className?: string }) {
+  return (
+    <div className={className}>
+      {children}
+    </div>
+  );
+}

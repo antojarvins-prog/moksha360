@@ -1,241 +1,269 @@
-import type { Metadata } from "next";
-import { Button } from "@/components/Button";
-import { Card } from "@/components/Card";
-import { FadeIn } from "@/components/FadeIn";
-import Link from "next/link";
-import { ArrowRight, CheckCircle2, MapPin, Music, Star, Network, TrendingUp, Presentation } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/Button";
+import { FadeIn, FadeInStagger } from "@/components/FadeIn";
+import { ArrowRight, CheckCircle2, Globe, TrendingUp, Music, Users, Radio } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Top Entertainment Agency in Bangalore | Moksha360",
-  description: "Moksha360 is a leading entertainment and artist management company in Bangalore helping musicians grow globally.",
-};
+// Interactive Content Loaders
+import { Accordion } from "@/components/Accordion";
+import { TestimonialCarousel } from "@/components/TestimonialCarousel";
+import { JourneyTimeline } from "@/components/JourneyTimeline";
+import { BlogPreviewGrid } from "@/components/BlogPreviewGrid";
 
 export default function Home() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "LocalBusiness",
-        "name": "Moksha360",
-        "address": { "@type": "PostalAddress", "addressLocality": "Bengaluru", "addressRegion": "Karnataka", "addressCountry": "IN" },
-        "description": "India's gateway connecting artists to global music opportunities using technology.",
-        "url": "https://moksha360.com"
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          { "@type": "Question", "name": "What does an artist management company do?", "acceptedAnswer": { "@type": "Answer", "text": "An artist management company helps musicians grow by handling branding, bookings, promotions, and partnerships." } },
-          { "@type": "Question", "name": "Can beginners join?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, Moksha360 supports both beginners and professionals." } }
-        ]
-      }
-    ]
-  };
-
   return (
-    <main className="flex flex-col items-center w-full bg-[#050505] text-white">
-      {/* Background glow effects */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[800px] bg-[#3D7500]/20 rounded-full mix-blend-screen filter blur-[150px] opacity-40 pointer-events-none z-0"></div>
+    <main className="min-h-screen bg-[#050505] text-white">
+      {/* 1. HERO SECTION */}
+      <section className="relative h-[90vh] flex items-center justify-center overflow-hidden">
+        {/* Background Zoom Animation natively CSS bound */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?q=80&w=2070&auto=format&fit=crop"
+            alt="Moksha360 Live Concert Experience"
+            fill
+            className="object-cover animate-hero-zoom opacity-40"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/40 via-[#050505]/60 to-[#050505]" />
+        </div>
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      
-      {/* 1. Hero */}
-      <section className="relative w-full min-h-screen flex items-center justify-center pt-24 pb-32 overflow-hidden">
-        <Image src="/hero_bg.png" alt="Moksha360 Premium Concert Stage" fill className="object-cover opacity-[0.25] mix-blend-screen z-0 pointer-events-none" priority />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/40 via-transparent to-[#050505] z-10 pointer-events-none"></div>
-
-        <FadeIn className="container mx-auto max-w-6xl px-6 text-center relative z-20 mt-16">
-          <div className="inline-flex items-center px-6 py-2.5 rounded-full bg-white/5 border border-white/10 text-gray-300 font-medium mb-10 backdrop-blur-md shadow-[0_0_20px_rgba(255,255,255,0.05)] text-sm tracking-wide">
-             <Star className="w-5 h-5 mr-3 text-[#4ade80]" /> The Premier Entertainment Agency in Bangalore
-          </div>
-          <h1 className="text-6xl md:text-8xl lg:text-[7.5rem] font-black font-poppins tracking-tighter leading-[1.05] mb-10 text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 pb-4">
-            India’s Gateway to <br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4ade80] via-[#13AFF0] to-[#4ade80] filter drop-shadow-[0_0_30px_rgba(74,222,128,0.4)] animate-pulse">Global Music Success</span>
-          </h1>
-          <p className="mt-8 text-xl md:text-3xl text-gray-400 max-w-4xl mx-auto font-opensans leading-snug mb-14 font-light">
-            Empowering artists through management, marketing, live events, and cutting-edge technology.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link href="/contact">
-              <Button size="lg" className="w-full sm:w-auto h-16 px-12 text-xl font-semibold shadow-[0_0_40px_rgba(61,117,0,0.5)]">Get Discovered <ArrowRight className="ml-3 w-6 h-6" /></Button>
-            </Link>
-            <Link href="/contact">
-              <Button variant="secondary" size="lg" className="w-full sm:w-auto h-16 px-12 text-xl font-semibold">Book Consultation</Button>
-            </Link>
-          </div>
-        </FadeIn>
+        <div className="relative z-10 container mx-auto px-4 pt-20 flex flex-col items-center text-center">
+          <FadeInStagger>
+            <FadeIn>
+              <span className="inline-block py-2 px-4 rounded-full bg-white/10 border border-white/20 text-xs sm:text-sm font-semibold tracking-[0.2em] text-gray-300 font-poppins mb-6 uppercase">
+                Trusted by artists across Bengaluru
+              </span>
+            </FadeIn>
+            <FadeIn>
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-poppins text-white mb-6 leading-[1.1] max-w-5xl">
+                India’s Gateway to <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#13AFF0] to-[#4ade80]">Global Music Success</span>
+              </h1>
+            </FadeIn>
+            <FadeIn>
+              <p className="text-lg md:text-2xl text-gray-300 font-opensans max-w-3xl mx-auto mb-10 leading-relaxed">
+                Helping artists grow through professional management, promotion, live experiences, and next-generation technical acceleration.
+              </p>
+            </FadeIn>
+            <FadeIn>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link href="/artist-management">
+                  <Button size="lg" className="h-14 px-10 text-lg w-full sm:w-auto hover:scale-[1.05] transition-transform duration-300 shadow-[0_0_20px_rgba(19,175,240,0.3)] bg-[#13AFF0] border-none">
+                    Get Discovered
+                  </Button>
+                </Link>
+                <Link href="/contact">
+                  <Button variant="ghost" size="lg" className="h-14 px-10 text-lg w-full sm:w-auto hover:scale-[1.05] transition-transform duration-300 border-white/20 hover:bg-white/5">
+                    Book Consultation
+                  </Button>
+                </Link>
+              </div>
+              <p className="text-gray-400 text-sm mt-8 flex items-center justify-center gap-2 font-opensans">
+                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" /> Limited onboarding slots available
+              </p>
+            </FadeIn>
+          </FadeInStagger>
+        </div>
       </section>
 
-      {/* 2. Trust Indicators */}
-      <section className="relative w-full py-16 border-y border-white/5 bg-white/5 backdrop-blur-3xl z-20">
-        <FadeIn delay={0.2} className="container mx-auto max-w-7xl px-4 flex flex-col md:flex-row flex-wrap justify-center items-center gap-10 md:gap-20 text-gray-400">
-           <div className="flex items-center gap-4 font-bold font-poppins md:text-2xl text-white tracking-wide"><Star className="w-8 h-8 text-[#4ade80]" /> 100+ Artists Managed</div>
-           <div className="flex items-center gap-4 font-bold font-poppins md:text-2xl text-white tracking-wide"><Network className="w-8 h-8 text-[#13AFF0]" /> Global Collaborations</div>
-           <div className="flex items-center gap-4 font-bold font-poppins md:text-2xl text-white tracking-wide"><Music className="w-8 h-8 text-[#4ade80]" /> Grammy-Level Network</div>
-           <div className="flex items-center gap-4 font-bold font-poppins md:text-2xl text-white tracking-wide"><MapPin className="w-8 h-8 text-[#13AFF0]" /> Based in Bengaluru</div>
-        </FadeIn>
-      </section>
-
-      {/* 3. Services */}
-      <section className="relative w-full py-40 overflow-hidden z-20">
-        <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#13AFF0]/20 rounded-full mix-blend-screen filter blur-[150px] opacity-40 pointer-events-none"></div>
-        <div className="container mx-auto max-w-7xl px-6 relative z-10">
-          <FadeIn className="text-center mb-24">
-            <h2 className="text-5xl md:text-7xl font-black font-poppins text-white mb-8 tracking-tighter">Our Core Services</h2>
-            <p className="text-gray-400 font-opensans max-w-3xl mx-auto text-2xl font-light leading-relaxed">Full artist lifecycle support, blending traditional management with tech-enabled growth.</p>
-          </FadeIn>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <FadeIn delay={0.1}>
-              <Card type="service" className="p-10 flex flex-col items-start h-full group">
-                 <div className="w-20 h-20 bg-gradient-to-tr from-[#3D7500]/30 to-black/50 rounded-2xl flex items-center justify-center mb-8 border border-[#3D7500]/50 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_30px_rgba(61,117,0,0.2)]">
-                   <Star className="text-[#4ade80] w-10 h-10 drop-shadow-[0_0_15px_rgba(74,222,128,0.8)]" />
-                 </div>
-                 <h3 className="text-3xl font-bold font-poppins mb-4 text-white">Artist Management</h3>
-                 <p className="text-gray-400 mb-10 flex-grow text-lg leading-relaxed font-light">Build your career with expert guidance and dedicated representation.</p>
-                 <Link href="/artist-management" className="text-[#4ade80] font-bold hover:text-white transition-colors inline-flex items-center text-lg uppercase tracking-wider">Learn more <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" /></Link>
-              </Card>
+      {/* 2. GLOBAL AUTHORITY SECTION */}
+      <section className="py-24 md:py-32 bg-[#050505] relative border-b border-white/5">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <FadeIn>
+              <div className="relative aspect-[4/5] md:aspect-square rounded-[3rem] overflow-hidden border border-white/10">
+                <Image
+                  src="https://images.unsplash.com/photo-1598387993441-a364f854c3e1?q=80&w=2076&auto=format&fit=crop"
+                  alt="Grammy Awards Networking"
+                  fill
+                  className="object-cover opacity-80"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-[#050505] via-transparent to-transparent opacity-80" />
+                <div className="absolute bottom-10 left-10 right-10 p-6 bg-[#050505]/60 backdrop-blur-xl border border-white/10 rounded-[2rem]">
+                  <p className="font-poppins font-bold text-lg text-white">🌍 Global Industry Access</p>
+                  <p className="text-gray-400 text-sm mt-2">Connecting Bengaluru strictly to the World.</p>
+                </div>
+              </div>
             </FadeIn>
-            <FadeIn delay={0.2}>
-              <Card type="service" className="p-10 flex flex-col items-start h-full group">
-                 <div className="w-20 h-20 bg-gradient-to-tr from-[#13AFF0]/30 to-black/50 rounded-2xl flex items-center justify-center mb-8 border border-[#13AFF0]/50 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_30px_rgba(19,175,240,0.2)]">
-                   <TrendingUp className="text-[#13AFF0] w-10 h-10 drop-shadow-[0_0_15px_rgba(19,175,240,0.8)]" />
-                 </div>
-                 <h3 className="text-3xl font-bold font-poppins mb-4 text-white">Music Promotion</h3>
-                 <p className="text-gray-400 mb-10 flex-grow text-lg leading-relaxed font-light">Reach global audiences and predictably grow your fanbase.</p>
-                 <Link href="/music-promotion" className="text-[#13AFF0] font-bold hover:text-white transition-colors inline-flex items-center text-lg uppercase tracking-wider">Learn more <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" /></Link>
-              </Card>
-            </FadeIn>
-            <FadeIn delay={0.3}>
-              <Card type="service" className="p-10 flex flex-col items-start h-full group">
-                 <div className="w-20 h-20 bg-gradient-to-tr from-[#3D7500]/30 to-black/50 rounded-2xl flex items-center justify-center mb-8 border border-[#3D7500]/50 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_30px_rgba(61,117,0,0.2)]">
-                   <Music className="text-[#4ade80] w-10 h-10 drop-shadow-[0_0_15px_rgba(74,222,128,0.8)]" />
-                 </div>
-                 <h3 className="text-3xl font-bold font-poppins mb-4 text-white">Live Events</h3>
-                 <p className="text-gray-400 mb-10 flex-grow text-lg leading-relaxed font-light">Perform on premium stages in India and around the world.</p>
-                 <Link href="/live-events" className="text-[#4ade80] font-bold hover:text-white transition-colors inline-flex items-center text-lg uppercase tracking-wider">Learn more <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" /></Link>
-              </Card>
-            </FadeIn>
-            <FadeIn delay={0.1}>
-              <Card type="service" className="p-10 flex flex-col items-start h-full group">
-                 <div className="w-20 h-20 bg-gradient-to-tr from-[#13AFF0]/30 to-black/50 rounded-2xl flex items-center justify-center mb-8 border border-[#13AFF0]/50 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_30px_rgba(19,175,240,0.2)]">
-                   <Presentation className="text-[#13AFF0] w-10 h-10 drop-shadow-[0_0_15px_rgba(19,175,240,0.8)]" />
-                 </div>
-                 <h3 className="text-3xl font-bold font-poppins mb-4 text-white">Mentorship</h3>
-                 <p className="text-gray-400 mb-10 flex-grow text-lg leading-relaxed font-light">Learn directly from globally recognized industry professionals.</p>
-                 <Link href="/mentorship" className="text-[#13AFF0] font-bold hover:text-white transition-colors inline-flex items-center text-lg uppercase tracking-wider">Learn more <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" /></Link>
-              </Card>
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <Card type="service" className="p-10 flex flex-col items-start h-full group">
-                 <div className="w-20 h-20 bg-gradient-to-tr from-[#3D7500]/30 to-black/50 rounded-2xl flex items-center justify-center mb-8 border border-[#3D7500]/50 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_30px_rgba(61,117,0,0.2)]">
-                   <CheckCircle2 className="text-[#4ade80] w-10 h-10 drop-shadow-[0_0_15px_rgba(74,222,128,0.8)]" />
-                 </div>
-                 <h3 className="text-3xl font-bold font-poppins mb-4 text-white">XR & AI</h3>
-                 <p className="text-gray-400 mb-10 flex-grow text-lg leading-relaxed font-light">Experience the future of music through immersive virtual ecosystems.</p>
-                 <Link href="/xr-ai" className="text-[#4ade80] font-bold hover:text-white transition-colors inline-flex items-center text-lg uppercase tracking-wider">Learn more <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" /></Link>
-              </Card>
+            <FadeIn>
+              <h2 className="text-4xl md:text-6xl font-bold font-poppins mb-8 leading-tight">Global From <span className="text-[#13AFF0]">Day One.</span></h2>
+              <div className="space-y-6 text-xl text-gray-400 font-opensans leading-relaxed">
+                <p>Before Moksha360 officially launched, its founders aggressively represented independent Indian music at the <strong>67th Grammy Awards in Los Angeles</strong>.</p>
+                <p>This wasn’t just physical visibility. It was about building real industry relationships, understanding granular global music ecosystems, and opening structural opportunities for artists beyond borders.</p>
+                <p>Today, Moksha360 permanently connects artists from Bengaluru to global audiences through calculated strategy, advanced technical routing, and sheer industry access.</p>
+              </div>
+              <div className="grid grid-cols-2 gap-6 mt-12">
+                <div className="flex items-center gap-3"><Globe className="text-[#4ade80] w-7 h-7 shrink-0" /><span className="font-bold text-white text-lg">Grammy-Level Presence</span></div>
+                <div className="flex items-center gap-3"><TrendingUp className="text-[#4ade80] w-7 h-7 shrink-0" /><span className="font-bold text-white text-lg">International Network</span></div>
+              </div>
             </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* 4. Why Choose Us */}
-      <section className="relative w-full py-32 bg-[#020202] border-y border-white/5 z-20 overflow-hidden">
-         <Image src="/studio_bg.png" alt="High End Studio" fill className="object-cover opacity-10 mix-blend-lighten z-0 pointer-events-none" />
-         <div className="absolute inset-0 bg-gradient-to-r from-[#020202] via-[#020202]/80 to-[#020202] z-10 pointer-events-none"></div>
+      {/* 3. TRUST SECTION */}
+      <section className="py-24 bg-[#F9F9F9] text-[#050505] relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { metric: "100+", label: "Artists Supported", icon: Users },
+              { metric: "Global", label: "Collaborations", icon: Globe },
+              { metric: "Tier-1", label: "Industry Network", icon: CheckCircle2 },
+              { metric: "Bengaluru", label: "Headquartered", icon: Music },
+            ].map((stat, i) => (
+              <FadeIn key={i} delay={i * 0.1}>
+                <div className="bg-white p-10 rounded-[2.5rem] border border-gray-200 shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:-translate-y-3 hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)] transition-all duration-500 group">
+                  <stat.icon className="w-12 h-12 text-[#3D7500] mb-6 group-hover:scale-[1.15] transition-transform duration-500" />
+                  <h3 className="text-4xl md:text-5xl font-bold font-poppins text-[#050505] mb-2">{stat.metric}</h3>
+                  <p className="text-gray-600 font-opensans font-semibold text-lg">{stat.label}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
 
-         <div className="container mx-auto max-w-7xl px-6 relative z-20">
-            <FadeIn className="text-center mb-20">
-              <h2 className="text-4xl md:text-6xl font-black font-poppins text-white mb-6 tracking-tight">Why Choose Us</h2>
+      {/* 4. SERVICES SECTION */}
+      <section className="py-24 md:py-32 bg-[#050505] relative">
+        <div className="container mx-auto px-4">
+          <FadeIn>
+            <div className="text-center max-w-3xl mx-auto mb-20">
+              <h2 className="text-5xl md:text-6xl font-bold font-poppins mb-6">Our Core <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#13AFF0] to-[#4ade80]">Infrastructure</span></h2>
+              <p className="text-xl text-gray-400 font-opensans leading-relaxed">Everything an ambitious artist needs to scale systematically.</p>
+            </div>
+          </FadeIn>
+          <div className="grid md:grid-cols-3 gap-6">
+            <FadeIn delay={0.1}><ServiceCard title="Artist Management" desc="Build and scale your music career with expert guidance and dense structural routing." link="/artist-management" icon={Users} /></FadeIn>
+            <FadeIn delay={0.2}><ServiceCard title="Music Promotion" desc="Grow your digital audience and reach the exact demographic precisely when they listen." link="/music-promotion" icon={TrendingUp} /></FadeIn>
+            <FadeIn delay={0.3}><div className="md:col-span-1"><ServiceCard title="Live Events" desc="Perform live dynamically and connect with real physical audiences across mapped venues." link="/live-events" icon={Music} /></div></FadeIn>
+            <FadeIn delay={0.4} className="md:col-span-1 md:col-start-2"><ServiceCard title="Mentorship" desc="Learn foundational technical parameters directly from established industry professionals." link="/mentorship" icon={CheckCircle2} /></FadeIn>
+            <FadeIn delay={0.5} className="md:col-span-1"><ServiceCard title="XR & AI" desc="Explore and map the absolutely bleeding edge trajectory of future music experiences." link="/xr-ai" icon={Radio} /></FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. WHY MOKSHA360 */}
+      <section className="py-24 bg-[#0a0a0a] border-y border-white/5">
+        <div className="container mx-auto px-4">
+           <div className="grid md:grid-cols-2 gap-16 items-center">
+             <FadeIn>
+               <h2 className="text-5xl md:text-6xl font-bold font-poppins mb-10 leading-tight">Why Artists Choose <span className="text-[#3D7500]">Moksha360</span></h2>
+               <ul className="space-y-8">
+                 {["Tier-1 Global exposure opportunities", "Dense international industry network integrations", "Strict technology-driven algorithmic scale parameters", "Career-focused holistic development roadmaps"].map((point, i) => (
+                   <li key={i} className="flex items-start gap-5 text-xl text-gray-300 font-medium">
+                     <CheckCircle2 className="w-8 h-8 text-[#13AFF0] shrink-0 mt-1" />
+                     <span className="leading-relaxed">{point}</span>
+                   </li>
+                 ))}
+               </ul>
+             </FadeIn>
+             <FadeIn>
+               <div className="relative aspect-[4/4] md:aspect-[4/3] rounded-[3rem] overflow-hidden border border-white/10 group shadow-2xl">
+                  <Image src="https://images.unsplash.com/photo-1516280440502-f8728a55e2d6?q=80&w=2070&auto=format&fit=crop" alt="Artist in Studio Recording" fill className="object-cover group-hover:scale-110 transition-transform duration-[1.5s]" />
+               </div>
+             </FadeIn>
+           </div>
+        </div>
+      </section>
+
+      {/* 6. ARTIST JOURNEY TIMELINE */}
+      <section className="py-24 md:py-32 bg-[#050505]">
+        <div className="container mx-auto px-4 overflow-hidden">
+          <FadeIn>
+            <div className="text-center max-w-3xl mx-auto mb-20">
+              <h2 className="text-5xl md:text-6xl font-bold font-poppins mb-6">The Artist <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4ade80] to-[#13AFF0]">Journey</span></h2>
+              <p className="text-xl text-gray-400 font-opensans leading-relaxed">A strictly enforced logical flow bridging basic discovery directly to global scale.</p>
+            </div>
+          </FadeIn>
+          <JourneyTimeline />
+        </div>
+      </section>
+
+      {/* 7. LOCAL SEO SECTION & 8. TESTIMONIALS */}
+      <section className="py-24 md:py-32 bg-gradient-to-b from-[#050505] to-[#0a0a0a] relative border-t border-white/5 overflow-hidden">
+         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#3D7500]/5 blur-[200px] rounded-full pointer-events-none" />
+         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#13AFF0]/5 blur-[200px] rounded-full pointer-events-none" />
+         <div className="container mx-auto px-4 relative z-10">
+            <FadeIn>
+              <div className="text-center max-w-4xl mx-auto mb-20">
+                <span className="text-[#4ade80] font-bold tracking-[0.2em] uppercase text-sm mb-6 block">Our Root Geographies</span>
+                <h2 className="text-5xl md:text-6xl font-bold font-poppins mb-8 leading-tight">Built in Bengaluru,<br/>Connected to the World.</h2>
+                <p className="text-2xl text-gray-400 font-opensans leading-relaxed mb-10">Actively serving and scaling artists physically originating from:</p>
+                <div className="flex flex-wrap justify-center gap-4">
+                   {["Indiranagar", "Koramangala", "Whitefield", "Electronic City", "HSR Layout"].map(loc => (
+                     <span key={loc} className="px-8 py-4 rounded-full border border-white/10 bg-white/5 font-semibold text-lg hover:bg-white/10 transition-colors shadow-lg shadow-black/50">{loc}</span>
+                   ))}
+                </div>
+              </div>
             </FadeIn>
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-12">
-               <FadeIn delay={0.1} className="text-center">
-                 <div className="w-16 h-16 mx-auto bg-gradient-to-tr from-[#3D7500]/50 to-transparent rounded-full flex items-center justify-center mb-6 shadow-[#3D7500]/20 shadow-lg border border-[#3D7500]/50 text-white font-bold text-xl">1</div>
-                 <h4 className="text-2xl font-bold text-white mb-4 font-poppins tracking-wide">Global Exposure</h4>
-                 <p className="text-gray-400 font-opensans text-lg font-light leading-relaxed">Unlock international opportunities and secure global distribution deals.</p>
-               </FadeIn>
-               <FadeIn delay={0.2} className="text-center">
-                 <div className="w-16 h-16 mx-auto bg-gradient-to-tr from-[#13AFF0]/50 to-transparent rounded-full flex items-center justify-center mb-6 shadow-[#13AFF0]/20 shadow-lg border border-[#13AFF0]/50 text-white font-bold text-xl">2</div>
-                 <h4 className="text-2xl font-bold text-white mb-4 font-poppins tracking-wide">Tech-Driven Growth</h4>
-                 <p className="text-gray-400 font-opensans text-lg font-light leading-relaxed">Leverage automated AI tools and immersive XR 3D environments.</p>
-               </FadeIn>
-               <FadeIn delay={0.3} className="text-center">
-                 <div className="w-16 h-16 mx-auto bg-gradient-to-tr from-[#3D7500]/50 to-transparent rounded-full flex items-center justify-center mb-6 shadow-[#3D7500]/20 shadow-lg border border-[#3D7500]/50 text-white font-bold text-xl">3</div>
-                 <h4 className="text-2xl font-bold text-white mb-4 font-poppins tracking-wide">Proven Results</h4>
-                 <p className="text-gray-400 font-opensans text-lg font-light leading-relaxed">A certified track record of scaling artists from 0 to 1 Million streams.</p>
-               </FadeIn>
-               <FadeIn delay={0.4} className="text-center">
-                 <div className="w-16 h-16 mx-auto bg-gradient-to-tr from-[#13AFF0]/50 to-transparent rounded-full flex items-center justify-center mb-6 shadow-[#13AFF0]/20 shadow-lg border border-[#13AFF0]/50 text-white font-bold text-xl">4</div>
-                 <h4 className="text-2xl font-bold text-white mb-4 font-poppins tracking-wide">Bengaluru Expertise</h4>
-                 <p className="text-gray-400 font-opensans text-lg font-light leading-relaxed">Rooted deeply in India's creative capital with premium venue access.</p>
-               </FadeIn>
+            
+            <div className="mt-24">
+               <TestimonialCarousel />
             </div>
          </div>
       </section>
 
-      {/* 5. Bengaluru Local Section */}
-      <section className="relative w-full py-40 overflow-hidden z-20">
-        <Image src="/bengaluru_city.png" alt="Bengaluru Cyberpunk Nightlife" fill className="object-cover opacity-10 mix-blend-color-dodge z-0 pointer-events-none" />
-        <div className="container mx-auto max-w-7xl px-6 flex flex-col lg:flex-row items-center gap-20 relative z-20">
-           <FadeIn className="flex-1 space-y-10">
-             <div className="inline-flex items-center px-5 py-2 rounded-full bg-[#13AFF0]/20 border border-[#13AFF0]/30 text-[#13AFF0] font-bold tracking-wide uppercase text-sm">
-               <MapPin className="w-4 h-4 mr-2" /> Local Dominance
-             </div>
-             <h2 className="text-5xl lg:text-7xl font-black font-poppins text-white leading-[1.1] tracking-tighter">Your Local <br/>Music Ecosystem</h2>
-             <p className="text-xl text-gray-400 font-opensans leading-relaxed border-l-4 border-[#4ade80] pl-8 font-light">
-               Bengaluru's thriving music scene requires local expertise. We seamlessly bridge the gap between emerging talent and the city's premier live entertainment sectors.
-             </p>
-             <div className="pt-6">
-               <h4 className="font-bold text-white mb-6 font-poppins text-2xl tracking-wide">Actively Serving:</h4>
-               <ul className="grid grid-cols-2 gap-y-6 gap-x-12 text-xl text-gray-300 font-light">
-                 <li className="flex items-center gap-3"><CheckCircle2 className="text-[#4ade80] w-6 h-6 shadow-[#4ade80]/50 drop-shadow-md" /> Indiranagar</li>
-                 <li className="flex items-center gap-3"><CheckCircle2 className="text-[#4ade80] w-6 h-6 shadow-[#4ade80]/50 drop-shadow-md" /> Whitefield</li>
-                 <li className="flex items-center gap-3"><CheckCircle2 className="text-[#4ade80] w-6 h-6 shadow-[#4ade80]/50 drop-shadow-md" /> Koramangala</li>
-                 <li className="flex items-center gap-3"><CheckCircle2 className="text-[#4ade80] w-6 h-6 shadow-[#4ade80]/50 drop-shadow-md" /> Electronic City</li>
-               </ul>
-             </div>
-           </FadeIn>
-           <FadeIn delay={0.2} className="flex-1 w-full bg-white/5 rounded-[3rem] h-[600px] flex items-center justify-center overflow-hidden relative shadow-[0_0_80px_rgba(19,175,240,0.1)] border border-white/10 backdrop-blur-3xl group">
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#3D7500]/20 to-[#13AFF0]/20 opacity-50 group-hover:opacity-100 transition-opacity duration-1000 mix-blend-color-dodge"></div>
-              <MapPin className="w-40 h-40 text-white/50 group-hover:scale-110 transition-transform duration-1000 drop-shadow-[0_0_30px_rgba(255,255,255,0.5)]" />
-           </FadeIn>
-        </div>
+      {/* 9. BLOG PREVIEW SECTION */}
+      <section className="py-24 md:py-32 bg-[#050505] border-t border-white/5">
+         <div className="container mx-auto px-4">
+            <FadeIn>
+              <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                 <div>
+                   <h2 className="text-5xl md:text-6xl font-bold font-poppins mb-6">Explore Our <span className="text-[#13AFF0]">Authority</span></h2>
+                   <p className="text-xl text-gray-400 font-opensans">Rigorous insights, strict structural strategies, and digital scaling blueprints.</p>
+                 </div>
+                 <Link href="/blog">
+                    <Button variant="ghost" size="lg" className="border border-white/20 hover:bg-white/10 hidden md:flex h-14 px-8 font-semibold">Read All Authority Articles</Button>
+                 </Link>
+              </div>
+            </FadeIn>
+            <BlogPreviewGrid />
+            <Link href="/blog" className="mt-12 block md:hidden">
+                <Button variant="ghost" size="lg" className="w-full border border-white/20 hover:bg-white/10 h-14 font-semibold">Read All Authority Articles</Button>
+            </Link>
+         </div>
       </section>
 
-      {/* 7. FAQ */}
-      <section className="relative w-full py-32 bg-[#020202] border-t border-white/5 overflow-hidden z-20">
-        <div className="container mx-auto max-w-5xl px-6">
-          <FadeIn className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-black font-poppins text-white mb-6 tracking-tighter">Frequently Asked Questions</h2>
+      {/* 10. FAQ SECTION */}
+      <section className="py-24 md:py-32 bg-[#0a0a0a] border-t border-white/5 relative overflow-hidden">
+         <div className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-[#13AFF0]/10 blur-[200px] rounded-full -translate-y-1/2 pointer-events-none" />
+         <div className="container mx-auto px-4 relative z-10">
+            <FadeIn>
+              <div className="text-center max-w-3xl mx-auto mb-20">
+                <h2 className="text-5xl md:text-6xl font-bold font-poppins mb-6">Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-500">Questions</span></h2>
+              </div>
+            </FadeIn>
+            <Accordion />
+         </div>
+      </section>
+
+      {/* 11. FINAL CTA SECTION */}
+      <section className="py-32 md:py-48 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#13AFF0] via-[#0b6b94] to-[#050505] z-0" />
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-30 mix-blend-overlay z-0" />
+        <div className="container mx-auto px-4 relative z-10 text-center">
+          <FadeIn>
+            <h2 className="text-6xl md:text-8xl font-bold font-poppins text-white mb-10 tracking-tight leading-[1.1]">Ready to Take Your<br/>Music Global?</h2>
+            <p className="text-2xl md:text-3xl text-white/90 font-opensans mb-14 max-w-3xl mx-auto font-medium">Join the exclusive network of artists structurally scaling their organic careers.</p>
+            <Link href="/contact" className="inline-block">
+              <Button size="lg" className="h-20 px-16 text-2xl font-bold font-poppins bg-white text-[#050505] hover:bg-gray-100 hover:scale-[1.05] transition-transform duration-300 shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-none">
+                Start Your Journey
+              </Button>
+            </Link>
           </FadeIn>
-          <div className="space-y-8">
-            <FadeIn delay={0.1}>
-              <div className="bg-white/5 p-12 rounded-[2rem] border border-white/10 hover:border-white/20 hover:bg-white/10 transition-colors backdrop-blur-xl">
-                 <h3 className="text-2xl font-bold font-poppins text-white mb-4">What does an artist management company do?</h3>
-                 <p className="text-gray-400 font-opensans leading-relaxed text-xl font-light">An artist management company helps musicians grow by meticulously handling branding pipelines, event bookings, global promotions, and strategic partnerships.</p>
-              </div>
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <div className="bg-white/5 p-12 rounded-[2rem] border border-white/10 hover:border-white/20 hover:bg-white/10 transition-colors backdrop-blur-xl">
-                 <h3 className="text-2xl font-bold font-poppins text-white mb-4">Can beginners join?</h3>
-                 <p className="text-gray-400 font-opensans leading-relaxed text-xl font-light">Yes, Moksha360 supports early-stage beginners and accelerates them into seasoned professionals.</p>
-              </div>
-            </FadeIn>
-          </div>
         </div>
-      </section>
-
-      {/* 8. CTA */}
-      <section className="relative w-full py-40 overflow-hidden z-20">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#3D7500]/20 z-0 pointer-events-none"></div>
-        <FadeIn className="container mx-auto max-w-5xl px-6 text-center relative z-10 flex flex-col items-center">
-          <h2 className="text-5xl md:text-7xl font-black font-poppins mb-8 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-white">Ready to take your music global?</h2>
-          <p className="text-3xl text-gray-300 mb-12 font-opensans font-light">Book your consultation today. <span className="font-bold text-white block mt-4"><Star className="w-8 h-8 inline mr-3 mb-1 text-[#4ade80]"/> Grammy-level connection.<br/><span className="text-[#13AFF0] uppercase text-xl tracking-widest mt-4 block">Limited slots available.</span></span></p>
-          <Link href="/contact">
-             <Button variant="primary" size="lg" className="h-20 px-16 text-2xl hover:scale-105 transition-transform duration-500 shadow-[0_0_60px_rgba(61,117,0,0.6)] border border-[#4ade80]/50 font-black">Reserve Your Slot Now</Button>
-          </Link>
-        </FadeIn>
       </section>
     </main>
+  );
+}
+
+// Internal Module: Core Service Parameter Matrix
+function ServiceCard({ title, desc, link, icon: Icon, className = "" }: any) {
+  return (
+    <Link href={link} className={`block h-full bg-white/5 border border-white/10 hover:border-[#13AFF0]/60 hover:bg-white/10 rounded-[2.5rem] p-12 transition-all duration-500 group relative overflow-hidden ${className}`}>
+      <div className="absolute top-0 right-0 w-32 h-32 bg-[#4ade80]/5 rounded-full blur-3xl group-hover:bg-[#13AFF0]/20 transition-colors" />
+      <Icon className="w-14 h-14 text-[#4ade80] mb-8 group-hover:scale-[1.2] group-hover:text-[#13AFF0] transition-all duration-500 relative z-10" />
+      <h3 className="text-3xl font-bold text-white font-poppins mb-4 relative z-10">{title}</h3>
+      <p className="text-gray-400 font-opensans leading-relaxed text-lg relative z-10">{desc}</p>
+    </Link>
   );
 }
