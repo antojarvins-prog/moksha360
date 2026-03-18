@@ -4,6 +4,7 @@ import { Card } from "@/components/Card";
 import { FadeIn } from "@/components/FadeIn";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, MapPin, Music, Star, Network, TrendingUp, Presentation } from "lucide-react";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Top Entertainment Agency in Bangalore | Moksha360",
@@ -17,132 +18,121 @@ export default function Home() {
       {
         "@type": "LocalBusiness",
         "name": "Moksha360",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Bengaluru",
-          "addressRegion": "Karnataka",
-          "addressCountry": "IN"
-        },
+        "address": { "@type": "PostalAddress", "addressLocality": "Bengaluru", "addressRegion": "Karnataka", "addressCountry": "IN" },
         "description": "India's gateway connecting artists to global music opportunities using technology.",
         "url": "https://moksha360.com"
       },
       {
         "@type": "FAQPage",
         "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What does an artist management company do?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "An artist management company helps musicians grow by handling branding, bookings, promotions, and partnerships."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can beginners join?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, Moksha360 supports both beginners and professionals."
-            }
-          }
+          { "@type": "Question", "name": "What does an artist management company do?", "acceptedAnswer": { "@type": "Answer", "text": "An artist management company helps musicians grow by handling branding, bookings, promotions, and partnerships." } },
+          { "@type": "Question", "name": "Can beginners join?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, Moksha360 supports both beginners and professionals." } }
         ]
       }
     ]
   };
 
   return (
-    <main className="flex flex-col items-center w-full">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+    <main className="flex flex-col items-center w-full bg-[#050505] text-white">
+      {/* Background glow effects */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[800px] bg-[#3D7500]/20 rounded-full mix-blend-screen filter blur-[150px] opacity-40 pointer-events-none z-0"></div>
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      
       {/* 1. Hero */}
-      <section className="w-full bg-gradient-to-b from-green-50 to-white py-24 md:py-32 overflow-hidden">
-        <FadeIn className="container mx-auto max-w-7xl px-4 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold font-poppins text-gray-900 tracking-tight leading-tight mb-6">
-            India’s Gateway to <br/><span className="text-[#3D7500]">Global Music Success</span>
+      <section className="relative w-full min-h-screen flex items-center justify-center pt-24 pb-32 overflow-hidden">
+        <Image src="/hero_bg.png" alt="Moksha360 Premium Concert Stage" fill className="object-cover opacity-[0.25] mix-blend-screen z-0 pointer-events-none" priority />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/40 via-transparent to-[#050505] z-10 pointer-events-none"></div>
+
+        <FadeIn className="container mx-auto max-w-6xl px-6 text-center relative z-20 mt-16">
+          <div className="inline-flex items-center px-6 py-2.5 rounded-full bg-white/5 border border-white/10 text-gray-300 font-medium mb-10 backdrop-blur-md shadow-[0_0_20px_rgba(255,255,255,0.05)] text-sm tracking-wide">
+             <Star className="w-5 h-5 mr-3 text-[#4ade80]" /> The Premier Entertainment Agency in Bangalore
+          </div>
+          <h1 className="text-6xl md:text-8xl lg:text-[7.5rem] font-black font-poppins tracking-tighter leading-[1.05] mb-10 text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-500 pb-4">
+            India’s Gateway to <br/>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4ade80] via-[#13AFF0] to-[#4ade80] filter drop-shadow-[0_0_30px_rgba(74,222,128,0.4)] animate-pulse">Global Music Success</span>
           </h1>
-          <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto font-opensans leading-relaxed mb-10">
+          <p className="mt-8 text-xl md:text-3xl text-gray-400 max-w-4xl mx-auto font-opensans leading-snug mb-14 font-light">
             Empowering artists through management, marketing, live events, and cutting-edge technology.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Link href="/contact">
-              <Button size="lg" className="w-full sm:w-auto text-lg h-14 hover:-translate-y-1 transition-transform">Get Discovered <ArrowRight className="ml-2 w-5 h-5" /></Button>
+              <Button size="lg" className="w-full sm:w-auto h-16 px-12 text-xl font-semibold shadow-[0_0_40px_rgba(61,117,0,0.5)]">Get Discovered <ArrowRight className="ml-3 w-6 h-6" /></Button>
             </Link>
             <Link href="/contact">
-              <Button variant="secondary" size="lg" className="w-full sm:w-auto text-lg h-14 hover:-translate-y-1 transition-transform">Book Consultation</Button>
+              <Button variant="secondary" size="lg" className="w-full sm:w-auto h-16 px-12 text-xl font-semibold">Book Consultation</Button>
             </Link>
           </div>
         </FadeIn>
       </section>
 
       {/* 2. Trust Indicators */}
-      <section className="w-full py-12 border-y border-gray-100 bg-white">
-        <FadeIn delay={0.2} className="container mx-auto max-w-7xl px-4 flex flex-col md:flex-row flex-wrap justify-center items-center gap-6 md:gap-14 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-           <div className="flex items-center gap-2 font-bold font-poppins md:text-xl"><Star className="w-6 h-6 text-[#3D7500]" /> 100+ Artists Managed</div>
-           <div className="flex items-center gap-2 font-bold font-poppins md:text-xl"><Network className="w-6 h-6 text-[#13AFF0]" /> Global Collaborations</div>
-           <div className="flex items-center gap-2 font-bold font-poppins md:text-xl"><Music className="w-6 h-6 text-[#3D7500]" /> Grammy-Level Network</div>
-           <div className="flex items-center gap-2 font-bold font-poppins md:text-xl"><MapPin className="w-6 h-6 text-[#13AFF0]" /> Based in Bengaluru</div>
+      <section className="relative w-full py-16 border-y border-white/5 bg-white/5 backdrop-blur-3xl z-20">
+        <FadeIn delay={0.2} className="container mx-auto max-w-7xl px-4 flex flex-col md:flex-row flex-wrap justify-center items-center gap-10 md:gap-20 text-gray-400">
+           <div className="flex items-center gap-4 font-bold font-poppins md:text-2xl text-white tracking-wide"><Star className="w-8 h-8 text-[#4ade80]" /> 100+ Artists Managed</div>
+           <div className="flex items-center gap-4 font-bold font-poppins md:text-2xl text-white tracking-wide"><Network className="w-8 h-8 text-[#13AFF0]" /> Global Collaborations</div>
+           <div className="flex items-center gap-4 font-bold font-poppins md:text-2xl text-white tracking-wide"><Music className="w-8 h-8 text-[#4ade80]" /> Grammy-Level Network</div>
+           <div className="flex items-center gap-4 font-bold font-poppins md:text-2xl text-white tracking-wide"><MapPin className="w-8 h-8 text-[#13AFF0]" /> Based in Bengaluru</div>
         </FadeIn>
       </section>
 
       {/* 3. Services */}
-      <section className="w-full py-24 bg-gray-50 overflow-hidden">
-        <div className="container mx-auto max-w-7xl px-4">
-          <FadeIn className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold font-poppins text-gray-900 mb-4">Our Core Services</h2>
-            <p className="text-gray-600 font-opensans max-w-2xl mx-auto text-lg">Full artist lifecycle support, blending traditional management with tech-enabled growth.</p>
+      <section className="relative w-full py-40 overflow-hidden z-20">
+        <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#13AFF0]/20 rounded-full mix-blend-screen filter blur-[150px] opacity-40 pointer-events-none"></div>
+        <div className="container mx-auto max-w-7xl px-6 relative z-10">
+          <FadeIn className="text-center mb-24">
+            <h2 className="text-5xl md:text-7xl font-black font-poppins text-white mb-8 tracking-tighter">Our Core Services</h2>
+            <p className="text-gray-400 font-opensans max-w-3xl mx-auto text-2xl font-light leading-relaxed">Full artist lifecycle support, blending traditional management with tech-enabled growth.</p>
           </FadeIn>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <FadeIn delay={0.1}>
-              <Card type="service" className="p-8 text-center flex flex-col items-center h-full">
-                 <div className="w-16 h-16 bg-[#3D7500]/10 rounded-full flex items-center justify-center mb-6">
-                   <Star className="text-[#3D7500] w-8 h-8" />
+              <Card type="service" className="p-10 flex flex-col items-start h-full group">
+                 <div className="w-20 h-20 bg-gradient-to-tr from-[#3D7500]/30 to-black/50 rounded-2xl flex items-center justify-center mb-8 border border-[#3D7500]/50 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_30px_rgba(61,117,0,0.2)]">
+                   <Star className="text-[#4ade80] w-10 h-10 drop-shadow-[0_0_15px_rgba(74,222,128,0.8)]" />
                  </div>
-                 <h3 className="text-2xl font-bold font-poppins mb-3">Artist Management</h3>
-                 <p className="text-gray-600 mb-8 flex-grow">Build your career with expert guidance.</p>
-                 <Link href="/artist-management" className="text-[#13AFF0] font-medium hover:underline inline-flex items-center text-lg">Learn more <ArrowRight className="ml-1 w-5 h-5" /></Link>
+                 <h3 className="text-3xl font-bold font-poppins mb-4 text-white">Artist Management</h3>
+                 <p className="text-gray-400 mb-10 flex-grow text-lg leading-relaxed font-light">Build your career with expert guidance and dedicated representation.</p>
+                 <Link href="/artist-management" className="text-[#4ade80] font-bold hover:text-white transition-colors inline-flex items-center text-lg uppercase tracking-wider">Learn more <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" /></Link>
               </Card>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <Card type="service" className="p-8 text-center flex flex-col items-center h-full">
-                 <div className="w-16 h-16 bg-[#13AFF0]/10 rounded-full flex items-center justify-center mb-6">
-                   <TrendingUp className="text-[#13AFF0] w-8 h-8" />
+              <Card type="service" className="p-10 flex flex-col items-start h-full group">
+                 <div className="w-20 h-20 bg-gradient-to-tr from-[#13AFF0]/30 to-black/50 rounded-2xl flex items-center justify-center mb-8 border border-[#13AFF0]/50 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_30px_rgba(19,175,240,0.2)]">
+                   <TrendingUp className="text-[#13AFF0] w-10 h-10 drop-shadow-[0_0_15px_rgba(19,175,240,0.8)]" />
                  </div>
-                 <h3 className="text-2xl font-bold font-poppins mb-3">Music Promotion</h3>
-                 <p className="text-gray-600 mb-8 flex-grow">Reach global audiences and grow your fanbase.</p>
-                 <Link href="/music-promotion" className="text-[#13AFF0] font-medium hover:underline inline-flex items-center text-lg">Learn more <ArrowRight className="ml-1 w-5 h-5" /></Link>
+                 <h3 className="text-3xl font-bold font-poppins mb-4 text-white">Music Promotion</h3>
+                 <p className="text-gray-400 mb-10 flex-grow text-lg leading-relaxed font-light">Reach global audiences and predictably grow your fanbase.</p>
+                 <Link href="/music-promotion" className="text-[#13AFF0] font-bold hover:text-white transition-colors inline-flex items-center text-lg uppercase tracking-wider">Learn more <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" /></Link>
               </Card>
             </FadeIn>
             <FadeIn delay={0.3}>
-              <Card type="service" className="p-8 text-center flex flex-col items-center h-full">
-                 <div className="w-16 h-16 bg-[#3D7500]/10 rounded-full flex items-center justify-center mb-6">
-                   <Music className="text-[#3D7500] w-8 h-8" />
+              <Card type="service" className="p-10 flex flex-col items-start h-full group">
+                 <div className="w-20 h-20 bg-gradient-to-tr from-[#3D7500]/30 to-black/50 rounded-2xl flex items-center justify-center mb-8 border border-[#3D7500]/50 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_30px_rgba(61,117,0,0.2)]">
+                   <Music className="text-[#4ade80] w-10 h-10 drop-shadow-[0_0_15px_rgba(74,222,128,0.8)]" />
                  </div>
-                 <h3 className="text-2xl font-bold font-poppins mb-3">Live Events</h3>
-                 <p className="text-gray-600 mb-8 flex-grow">Perform on premium stages.</p>
-                 <Link href="/live-events" className="text-[#13AFF0] font-medium hover:underline inline-flex items-center text-lg">Learn more <ArrowRight className="ml-1 w-5 h-5" /></Link>
+                 <h3 className="text-3xl font-bold font-poppins mb-4 text-white">Live Events</h3>
+                 <p className="text-gray-400 mb-10 flex-grow text-lg leading-relaxed font-light">Perform on premium stages in India and around the world.</p>
+                 <Link href="/live-events" className="text-[#4ade80] font-bold hover:text-white transition-colors inline-flex items-center text-lg uppercase tracking-wider">Learn more <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" /></Link>
               </Card>
             </FadeIn>
-            {/* Mentorship & XR */}
             <FadeIn delay={0.1}>
-              <Card type="service" className="p-8 text-center flex flex-col items-center h-full">
-                 <div className="w-16 h-16 bg-[#13AFF0]/10 rounded-full flex items-center justify-center mb-6">
-                   <Presentation className="text-[#13AFF0] w-8 h-8" />
+              <Card type="service" className="p-10 flex flex-col items-start h-full group">
+                 <div className="w-20 h-20 bg-gradient-to-tr from-[#13AFF0]/30 to-black/50 rounded-2xl flex items-center justify-center mb-8 border border-[#13AFF0]/50 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_30px_rgba(19,175,240,0.2)]">
+                   <Presentation className="text-[#13AFF0] w-10 h-10 drop-shadow-[0_0_15px_rgba(19,175,240,0.8)]" />
                  </div>
-                 <h3 className="text-2xl font-bold font-poppins mb-3">Mentorship</h3>
-                 <p className="text-gray-600 mb-8 flex-grow">Learn from industry professionals.</p>
-                 <Link href="/mentorship" className="text-[#13AFF0] font-medium hover:underline inline-flex items-center text-lg">Learn more <ArrowRight className="ml-1 w-5 h-5" /></Link>
+                 <h3 className="text-3xl font-bold font-poppins mb-4 text-white">Mentorship</h3>
+                 <p className="text-gray-400 mb-10 flex-grow text-lg leading-relaxed font-light">Learn directly from globally recognized industry professionals.</p>
+                 <Link href="/mentorship" className="text-[#13AFF0] font-bold hover:text-white transition-colors inline-flex items-center text-lg uppercase tracking-wider">Learn more <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" /></Link>
               </Card>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <Card type="service" className="p-8 text-center flex flex-col items-center h-full">
-                 <div className="w-16 h-16 bg-[#3D7500]/10 rounded-full flex items-center justify-center mb-6">
-                   <CheckCircle2 className="text-[#3D7500] w-8 h-8" />
+              <Card type="service" className="p-10 flex flex-col items-start h-full group">
+                 <div className="w-20 h-20 bg-gradient-to-tr from-[#3D7500]/30 to-black/50 rounded-2xl flex items-center justify-center mb-8 border border-[#3D7500]/50 group-hover:scale-110 transition-transform duration-500 shadow-[0_0_30px_rgba(61,117,0,0.2)]">
+                   <CheckCircle2 className="text-[#4ade80] w-10 h-10 drop-shadow-[0_0_15px_rgba(74,222,128,0.8)]" />
                  </div>
-                 <h3 className="text-2xl font-bold font-poppins mb-3">XR & AI</h3>
-                 <p className="text-gray-600 mb-8 flex-grow">Experience the future of music.</p>
-                 <Link href="/xr-ai" className="text-[#13AFF0] font-medium hover:underline inline-flex items-center text-lg">Learn more <ArrowRight className="ml-1 w-5 h-5" /></Link>
+                 <h3 className="text-3xl font-bold font-poppins mb-4 text-white">XR & AI</h3>
+                 <p className="text-gray-400 mb-10 flex-grow text-lg leading-relaxed font-light">Experience the future of music through immersive virtual ecosystems.</p>
+                 <Link href="/xr-ai" className="text-[#4ade80] font-bold hover:text-white transition-colors inline-flex items-center text-lg uppercase tracking-wider">Learn more <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform" /></Link>
               </Card>
             </FadeIn>
           </div>
@@ -150,77 +140,85 @@ export default function Home() {
       </section>
 
       {/* 4. Why Choose Us */}
-      <section className="w-full py-24 bg-white border-y border-gray-100">
-         <div className="container mx-auto max-w-5xl px-4 text-center">
-            <FadeIn>
-              <h2 className="text-3xl md:text-5xl font-bold font-poppins text-gray-900 mb-12">Why Choose Us</h2>
+      <section className="relative w-full py-32 bg-[#020202] border-y border-white/5 z-20 overflow-hidden">
+         <Image src="/studio_bg.png" alt="High End Studio" fill className="object-cover opacity-10 mix-blend-lighten z-0 pointer-events-none" />
+         <div className="absolute inset-0 bg-gradient-to-r from-[#020202] via-[#020202]/80 to-[#020202] z-10 pointer-events-none"></div>
+
+         <div className="container mx-auto max-w-7xl px-6 relative z-20">
+            <FadeIn className="text-center mb-20">
+              <h2 className="text-4xl md:text-6xl font-black font-poppins text-white mb-6 tracking-tight">Why Choose Us</h2>
             </FadeIn>
-            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8">
-               <FadeIn delay={0.1}>
-                 <h4 className="text-xl font-bold text-[#3D7500] mb-2 font-poppins">Global Exposure</h4>
-                 <p className="text-gray-600 font-opensans">Unlock international opportunities.</p>
+            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-12">
+               <FadeIn delay={0.1} className="text-center">
+                 <div className="w-16 h-16 mx-auto bg-gradient-to-tr from-[#3D7500]/50 to-transparent rounded-full flex items-center justify-center mb-6 shadow-[#3D7500]/20 shadow-lg border border-[#3D7500]/50 text-white font-bold text-xl">1</div>
+                 <h4 className="text-2xl font-bold text-white mb-4 font-poppins tracking-wide">Global Exposure</h4>
+                 <p className="text-gray-400 font-opensans text-lg font-light leading-relaxed">Unlock international opportunities and secure global distribution deals.</p>
                </FadeIn>
-               <FadeIn delay={0.2}>
-                 <h4 className="text-xl font-bold text-[#13AFF0] mb-2 font-poppins">Tech-driven Growth</h4>
-                 <p className="text-gray-600 font-opensans">Leveraging AI tools and XR models.</p>
+               <FadeIn delay={0.2} className="text-center">
+                 <div className="w-16 h-16 mx-auto bg-gradient-to-tr from-[#13AFF0]/50 to-transparent rounded-full flex items-center justify-center mb-6 shadow-[#13AFF0]/20 shadow-lg border border-[#13AFF0]/50 text-white font-bold text-xl">2</div>
+                 <h4 className="text-2xl font-bold text-white mb-4 font-poppins tracking-wide">Tech-Driven Growth</h4>
+                 <p className="text-gray-400 font-opensans text-lg font-light leading-relaxed">Leverage automated AI tools and immersive XR 3D environments.</p>
                </FadeIn>
-               <FadeIn delay={0.3}>
-                 <h4 className="text-xl font-bold text-[#3D7500] mb-2 font-poppins">Proven Results</h4>
-                 <p className="text-gray-600 font-opensans">A track record of scaling artists.</p>
+               <FadeIn delay={0.3} className="text-center">
+                 <div className="w-16 h-16 mx-auto bg-gradient-to-tr from-[#3D7500]/50 to-transparent rounded-full flex items-center justify-center mb-6 shadow-[#3D7500]/20 shadow-lg border border-[#3D7500]/50 text-white font-bold text-xl">3</div>
+                 <h4 className="text-2xl font-bold text-white mb-4 font-poppins tracking-wide">Proven Results</h4>
+                 <p className="text-gray-400 font-opensans text-lg font-light leading-relaxed">A certified track record of scaling artists from 0 to 1 Million streams.</p>
                </FadeIn>
-               <FadeIn delay={0.4}>
-                 <h4 className="text-xl font-bold text-[#13AFF0] mb-2 font-poppins">Bengaluru Expertise</h4>
-                 <p className="text-gray-600 font-opensans">Rooted in India's creative capital.</p>
+               <FadeIn delay={0.4} className="text-center">
+                 <div className="w-16 h-16 mx-auto bg-gradient-to-tr from-[#13AFF0]/50 to-transparent rounded-full flex items-center justify-center mb-6 shadow-[#13AFF0]/20 shadow-lg border border-[#13AFF0]/50 text-white font-bold text-xl">4</div>
+                 <h4 className="text-2xl font-bold text-white mb-4 font-poppins tracking-wide">Bengaluru Expertise</h4>
+                 <p className="text-gray-400 font-opensans text-lg font-light leading-relaxed">Rooted deeply in India's creative capital with premium venue access.</p>
                </FadeIn>
             </div>
          </div>
       </section>
 
       {/* 5. Bengaluru Local Section */}
-      <section className="w-full py-24 bg-gray-50 overflow-hidden">
-        <div className="container mx-auto max-w-7xl px-4 flex flex-col md:flex-row items-center gap-16">
-           <FadeIn className="flex-1 space-y-8">
-             <div className="inline-flex items-center px-4 py-2 rounded-full bg-[#13AFF0]/10 text-[#13AFF0] font-medium">
-               <MapPin className="w-5 h-5 mr-2" /> Local Dominance
+      <section className="relative w-full py-40 overflow-hidden z-20">
+        <Image src="/bengaluru_city.png" alt="Bengaluru Cyberpunk Nightlife" fill className="object-cover opacity-10 mix-blend-color-dodge z-0 pointer-events-none" />
+        <div className="container mx-auto max-w-7xl px-6 flex flex-col lg:flex-row items-center gap-20 relative z-20">
+           <FadeIn className="flex-1 space-y-10">
+             <div className="inline-flex items-center px-5 py-2 rounded-full bg-[#13AFF0]/20 border border-[#13AFF0]/30 text-[#13AFF0] font-bold tracking-wide uppercase text-sm">
+               <MapPin className="w-4 h-4 mr-2" /> Local Dominance
              </div>
-             <h2 className="text-4xl lg:text-5xl font-bold font-poppins text-gray-900 leading-tight">Your Local <br/>Music Ecosystem</h2>
-             <p className="text-lg text-gray-600 font-opensans leading-relaxed border-l-4 border-[#3D7500] pl-6">
-               Bengaluru's thriving music scene requires local expertise. We bridge the gap between emerging talent and the city's premier sectors.
+             <h2 className="text-5xl lg:text-7xl font-black font-poppins text-white leading-[1.1] tracking-tighter">Your Local <br/>Music Ecosystem</h2>
+             <p className="text-xl text-gray-400 font-opensans leading-relaxed border-l-4 border-[#4ade80] pl-8 font-light">
+               Bengaluru's thriving music scene requires local expertise. We seamlessly bridge the gap between emerging talent and the city's premier live entertainment sectors.
              </p>
-             <div>
-               <h4 className="font-bold text-gray-900 mb-4 font-poppins text-xl">Serving:</h4>
-               <ul className="space-y-4 text-lg text-gray-800 grid grid-cols-2">
-                 <li className="flex items-center gap-2"><CheckCircle2 className="text-[#3D7500] w-5 h-5" /> Indiranagar</li>
-                 <li className="flex items-center gap-2"><CheckCircle2 className="text-[#3D7500] w-5 h-5" /> Whitefield</li>
-                 <li className="flex items-center gap-2"><CheckCircle2 className="text-[#3D7500] w-5 h-5" /> Koramangala</li>
-                 <li className="flex items-center gap-2"><CheckCircle2 className="text-[#3D7500] w-5 h-5" /> Electronic City</li>
+             <div className="pt-6">
+               <h4 className="font-bold text-white mb-6 font-poppins text-2xl tracking-wide">Actively Serving:</h4>
+               <ul className="grid grid-cols-2 gap-y-6 gap-x-12 text-xl text-gray-300 font-light">
+                 <li className="flex items-center gap-3"><CheckCircle2 className="text-[#4ade80] w-6 h-6 shadow-[#4ade80]/50 drop-shadow-md" /> Indiranagar</li>
+                 <li className="flex items-center gap-3"><CheckCircle2 className="text-[#4ade80] w-6 h-6 shadow-[#4ade80]/50 drop-shadow-md" /> Whitefield</li>
+                 <li className="flex items-center gap-3"><CheckCircle2 className="text-[#4ade80] w-6 h-6 shadow-[#4ade80]/50 drop-shadow-md" /> Koramangala</li>
+                 <li className="flex items-center gap-3"><CheckCircle2 className="text-[#4ade80] w-6 h-6 shadow-[#4ade80]/50 drop-shadow-md" /> Electronic City</li>
                </ul>
              </div>
            </FadeIn>
-           <FadeIn delay={0.2} className="flex-1 w-full bg-white rounded-3xl h-[400px] flex items-center justify-center overflow-hidden relative shadow-lg border border-gray-100">
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#3D7500]/10 to-[#13AFF0]/10"></div>
-              <MapPin className="w-32 h-32 text-gray-200" />
+           <FadeIn delay={0.2} className="flex-1 w-full bg-white/5 rounded-[3rem] h-[600px] flex items-center justify-center overflow-hidden relative shadow-[0_0_80px_rgba(19,175,240,0.1)] border border-white/10 backdrop-blur-3xl group">
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#3D7500]/20 to-[#13AFF0]/20 opacity-50 group-hover:opacity-100 transition-opacity duration-1000 mix-blend-color-dodge"></div>
+              <MapPin className="w-40 h-40 text-white/50 group-hover:scale-110 transition-transform duration-1000 drop-shadow-[0_0_30px_rgba(255,255,255,0.5)]" />
            </FadeIn>
         </div>
       </section>
 
-      {/* 7. FAQ (AI Search Optimization format) */}
-      <section className="w-full py-24 bg-white overflow-hidden">
-        <div className="container mx-auto max-w-4xl px-4">
-          <FadeIn className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold font-poppins text-gray-900 mb-4">Frequently Asked Questions</h2>
+      {/* 7. FAQ */}
+      <section className="relative w-full py-32 bg-[#020202] border-t border-white/5 overflow-hidden z-20">
+        <div className="container mx-auto max-w-5xl px-6">
+          <FadeIn className="text-center mb-20">
+            <h2 className="text-4xl md:text-6xl font-black font-poppins text-white mb-6 tracking-tighter">Frequently Asked Questions</h2>
           </FadeIn>
-          <div className="space-y-6">
+          <div className="space-y-8">
             <FadeIn delay={0.1}>
-              <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100">
-                 <h3 className="text-xl font-bold font-poppins text-gray-900 mb-3">What does an artist management company do?</h3>
-                 <p className="text-gray-600 font-opensans leading-relaxed text-lg">An artist management company helps musicians grow by handling branding, bookings, promotions, and partnerships.</p>
+              <div className="bg-white/5 p-12 rounded-[2rem] border border-white/10 hover:border-white/20 hover:bg-white/10 transition-colors backdrop-blur-xl">
+                 <h3 className="text-2xl font-bold font-poppins text-white mb-4">What does an artist management company do?</h3>
+                 <p className="text-gray-400 font-opensans leading-relaxed text-xl font-light">An artist management company helps musicians grow by meticulously handling branding pipelines, event bookings, global promotions, and strategic partnerships.</p>
               </div>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100">
-                 <h3 className="text-xl font-bold font-poppins text-gray-900 mb-3">Can beginners join?</h3>
-                 <p className="text-gray-600 font-opensans leading-relaxed text-lg">Yes, Moksha360 supports both beginners and professionals.</p>
+              <div className="bg-white/5 p-12 rounded-[2rem] border border-white/10 hover:border-white/20 hover:bg-white/10 transition-colors backdrop-blur-xl">
+                 <h3 className="text-2xl font-bold font-poppins text-white mb-4">Can beginners join?</h3>
+                 <p className="text-gray-400 font-opensans leading-relaxed text-xl font-light">Yes, Moksha360 supports early-stage beginners and accelerates them into seasoned professionals.</p>
               </div>
             </FadeIn>
           </div>
@@ -228,13 +226,13 @@ export default function Home() {
       </section>
 
       {/* 8. CTA */}
-      <section className="w-full py-24 bg-[#3D7500] text-white overflow-hidden relative">
-        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay"></div>
-        <FadeIn className="container mx-auto max-w-4xl px-4 text-center relative z-10">
-          <h2 className="text-4xl md:text-6xl font-bold font-poppins mb-6">Ready to take your music global?</h2>
-          <p className="text-2xl text-green-100 mb-8 font-opensans">Book your consultation today. <span className="font-bold text-white block mt-2 opacity-90"><Star className="w-5 h-5 inline mr-2 mb-1"/> Grammy-level connection. Limited slots available.</span></p>
+      <section className="relative w-full py-40 overflow-hidden z-20">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#3D7500]/20 z-0 pointer-events-none"></div>
+        <FadeIn className="container mx-auto max-w-5xl px-6 text-center relative z-10 flex flex-col items-center">
+          <h2 className="text-5xl md:text-7xl font-black font-poppins mb-8 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-white">Ready to take your music global?</h2>
+          <p className="text-3xl text-gray-300 mb-12 font-opensans font-light">Book your consultation today. <span className="font-bold text-white block mt-4"><Star className="w-8 h-8 inline mr-3 mb-1 text-[#4ade80]"/> Grammy-level connection.<br/><span className="text-[#13AFF0] uppercase text-xl tracking-widest mt-4 block">Limited slots available.</span></span></p>
           <Link href="/contact">
-             <Button variant="secondary" size="lg" className="bg-white text-[#3D7500] border-transparent hover:bg-gray-100 text-xl h-14 px-10 hover:scale-105 transition-transform duration-300">Book Consultation</Button>
+             <Button variant="primary" size="lg" className="h-20 px-16 text-2xl hover:scale-105 transition-transform duration-500 shadow-[0_0_60px_rgba(61,117,0,0.6)] border border-[#4ade80]/50 font-black">Reserve Your Slot Now</Button>
           </Link>
         </FadeIn>
       </section>

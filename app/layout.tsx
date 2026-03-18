@@ -42,7 +42,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${poppins.variable} ${openSans.variable} font-opensans antialiased bg-white text-black`}
+        className={`${poppins.variable} ${openSans.variable} font-opensans antialiased bg-[#050505] text-white selection:bg-[#3D7500] selection:text-white`}
       >
         <Navbar />
         {children}

@@ -3,22 +3,25 @@ import { Button } from "./Button";
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-[#E5E5E5] bg-white/80 backdrop-blur-md">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between max-w-7xl">
-        <Link href="/" className="flex items-center space-x-2">
-          <span className="text-2xl font-bold font-poppins text-[#3D7500]">Moksha360</span>
+    <header className="fixed top-0 z-50 w-full border-b border-white/5 bg-black/40 backdrop-blur-2xl">
+      <div className="container mx-auto px-6 h-24 flex items-center justify-between max-w-7xl">
+        <Link href="/" className="flex items-center space-x-3 group">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#3D7500] to-[#13AFF0] p-[2px] shadow-[0_0_20px_rgba(19,175,240,0.3)] group-hover:shadow-[0_0_30px_rgba(19,175,240,0.6)] transition-all duration-500">
+            <div className="w-full h-full bg-black rounded-[10px] flex items-center justify-center">
+              <span className="text-white font-bold font-poppins text-lg">M</span>
+            </div>
+          </div>
+          <span className="text-3xl font-bold font-poppins text-white tracking-tight">Moksha<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3D7500] to-[#13AFF0]">360</span></span>
         </Link>
-        <nav className="hidden md:flex gap-6 items-center">
-          <Link href="/about" className="text-sm font-medium hover:text-[#13AFF0] transition-colors">About</Link>
-          <Link href="/services" className="text-sm font-medium hover:text-[#13AFF0] transition-colors">Services</Link>
-          <Link href="/blog" className="text-sm font-medium hover:text-[#13AFF0] transition-colors">Blog</Link>
+        <nav className="hidden md:flex gap-10 items-center">
+          <Link href="/about" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">About</Link>
+          <Link href="/services" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Services</Link>
+          <Link href="/blog" className="text-sm font-medium text-gray-300 hover:text-white transition-colors">Insights</Link>
         </nav>
         <div className="flex items-center gap-4">
           <Link href="/contact" className="hidden md:block">
-            <Button variant="primary" size="sm">Get Started</Button>
+            <Button variant="primary" size="md">Get Started</Button>
           </Link>
-          {/* Mobile menu button placeholder */}
-          <button className="md:hidden p-2 text-gray-600">Menu</button>
         </div>
       </div>
     </header>
